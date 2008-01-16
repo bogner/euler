@@ -1,6 +1,2 @@
-main = putStrLn . show $ [ (a,b,c) | a <- squares, b <- squares, c2 <- (+) a b, isSquare c2, c <- isqrt c2, a+b+c==1000]
-squares = map (^2) [0..1000]
-isSquare :: Int -> Bool
-isSquare = flip elem squares
---sumSquares x y = filter (flip elem squares) $ zipWith (+) x y
+main = putStrLn . show . $ [ (a,b,c) | a <- [1..999], b <- [1..a], let c = isqrt (a^2+b^2), a+b+c==1000, c^2==a^2+b^2 ]
 isqrt = floor . sqrt . fromIntegral

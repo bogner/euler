@@ -1,7 +1,7 @@
-main = putStrLn . show . foldr max 0 . prod5 $ bigList
+main = putStrLn . show . max5 $ bigList
 
-prod5 (x:xs)= (foldr (*) x . take 4 $ xs) : prod5 xs
-prod5 _ = []
+max5 (x1:xs@(x2:x3:x4:x5:rest))= max (x1*x2*x3*x4*x5) $ max5 xs
+max5 _ = 0
 bigList = [7,3,1,6,7,1,7,6,5,3,1,3,3,0,6,2,4,9,1,9,2,2,5,1,1,
            9,6,7,4,4,2,6,5,7,4,7,4,2,3,5,5,3,4,9,1,9,4,9,3,4,
            9,6,9,8,3,5,2,0,3,1,2,7,7,4,5,0,6,3,2,6,2,3,9,5,7,
