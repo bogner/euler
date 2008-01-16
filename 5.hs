@@ -1,1 +1,1 @@
-main = putStrLn . show $ foldr lcm 1 [1..20]
+main = putStrLn . show . foldl1 lcm $ [1..20]

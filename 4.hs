@@ -1,6 +1,3 @@
-main = putStrLn . show . foldr max 0 . getPals $ [100..999]
-coms []     = []
-coms (x:xs) = map ((,) x) (x:xs) ++ coms xs
-getPals x = filter isPal . uncurry (zipWith (*)) . unzip . coms $ x
---getPals x = filter (isPal . uncurry (*)) . coms $ x
-isPal n = (==n) . read . reverse . show $ n
+main = putStrLn . show . maximum $ palindromes 100 999
+    where palindromes l h = [ x * y | x <- [l..h], y <- [x..h], p (x * y) ]
+          p n = s == reverse s where s = show n
